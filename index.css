@@ -1,0 +1,1222 @@
+:root {
+
+  /* Others */
+  --font-color-white: #fff;
+  --font-color-black: #000;
+  --background-color-wrapper: rgba(0, 0, 0, 0.384);
+  --black-buttons: linear-gradient(to bottom right, #505050, #000000ef, #474747);
+  --black-buttons-hover: linear-gradient(to bottom right, #6b6b6b, #000000ef, #525252);
+  --black-buttons-active: linear-gradient(to bottom right, #6b6b6b, #383838ef, #525252);
+  --input-white-box-shadow: 0px 0px 3px rgb(211, 211, 211), 0px 0px 5px rgb(216, 216, 216);
+  --focus-input-white-box-shadow: 0px 0px 3px rgb(190, 190, 190), 0px 0px 5px rgb(172, 172, 172);
+
+  --success-button-color: linear-gradient(to bottom right, rgb(61, 236, 61),rgb(0, 119, 0));
+  --success-button-active: linear-gradient(to bottom right, rgb(83, 252, 83),rgb(20, 204, 20));
+  --success-button-shadow: 0px 0px 5px rgb(15, 131, 0);
+  --warning-button-color: linear-gradient(to bottom right, rgb(255, 107, 107) ,red, rgb(255, 24, 24));
+  --warning-button-color-hover: linear-gradient(to bottom right, rgb(255, 122, 122) ,rgb(255, 21, 21), rgb(255, 37, 37));
+  --warning-button-color-active: linear-gradient(to bottom right, rgb(255, 122, 122) ,rgb(255, 71, 71), rgb(255, 37, 37));
+  --warning-button-shadow: 0px 0px 5px rgb(129, 66, 66);
+
+  /* White Colors */
+  --white-body-color: linear-gradient(to bottom right, rgb(255, 255, 255),rgb(240, 240, 240), white);
+  --form-white-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.822),rgba(248, 248, 248, 0.5), rgba(255, 255, 255, 0.815));
+  --form-white-box-shadow-color: 0px 0px 2px rgb(231, 231, 231),
+                      -1px 1px 5px rgb(214, 214, 214),
+                      -1px 1px 10px rgb(214, 214, 214),
+                      -1px 1px 20px rgb(209, 209, 209);
+
+  /* Dark Mode Color */
+  --dark-body-color: rgb(12, 12, 12);
+  --form-dark-color: linear-gradient(to bottom right, rgb(27, 27, 27),rgb(10, 10, 10),rgb(26, 26, 26));
+  --form-dark-box-shadow-color: 0px 0px 2px #ffffff, 0px 0px 5px #1b1b1b;
+  --form-dark-toggle-color: linear-gradient(to bottom right, rgb(119, 119, 119),black, rgb(114, 114, 114));
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Scrollbars */
+.wrapper .user-dashboard .edit-account::-webkit-scrollbar,
+.wrapper .user-dashboard::-webkit-scrollbar {
+  width: 5px;
+}
+
+.wrapper .user-dashboard .edit-account::-webkit-scrollbar-thumb,
+.wrapper .user-dashboard::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.212);
+}
+
+.wrapper .user-dashboard .edit-account::-webkit-scrollbar-track,
+.wrapper .user-dashboard::-webkit-scrollbar-track {
+  background: #000000bd;
+}
+
+
+/* Hovers */
+.wrapper .signUpForm .signUpButton:hover,
+.wrapper .loginForm .loginButton:hover,
+.wrapper .user-dashboard .logout-wrapper button:hover,
+.wrapper .user-dashboard .button-wrapper button:hover,
+.wrapper .steps .button-wrapper button:hover {
+  background: var(--black-buttons-hover);
+}
+
+.wrapper .user-dashboard .button-wrapper button.delete-account:hover,
+.wrapper .user-dashboard .edit-account .button-wrapper button.cancel:hover,
+.wrapper .steps .button-wrapper button.back:hover,
+.wrapper .steps .button-wrapper button.back2:hover,
+.wrapper .steps.dark .button-wrapper .back:hover,
+.wrapper .steps.dark .button-wrapper .back2:hover {
+  background: var(--warning-button-color-hover);
+}
+
+.wrapper .signUpForm .already-have-an-account:hover,
+.wrapper .loginForm .dont-have-an-account:hover,
+.wrapper .loginForm .forgot-password:hover {
+  text-decoration: underline;
+}
+
+.wrapper .signUpForm.dark .signUpButton:hover,
+.wrapper .loginForm.dark .loginButton:hover,
+.wrapper .user-dashboard.dark .button-wrapper .edit-info:hover,
+.wrapper .steps.dark .button-wrapper .proceed:hover,
+.wrapper .steps.dark .button-wrapper .proceed2:hover,
+.wrapper .steps.dark .button-wrapper .submit:hover {
+  box-shadow: var(--success-button-shadow);
+}
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: auto;
+  height: auto;
+  background: linear-gradient(to bottom right, rgb(255, 255, 255),rgb(240, 240, 240), white);
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes clicked {
+  0% {
+    transform: scale(.95);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes decends {
+  0% {
+    transform: translateY(-100em);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.clicked {
+  animation: clicked .1s ease-in-out 1;
+}
+
+/* Prompt Section */
+.prompt-wrapper {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  z-index: 1;
+}
+
+.prompt-wrapper.show {
+  display: flex;
+  animation: decends .5s ease-in-out 1;
+}
+
+.prompt-wrapper .prompt-content {
+  width: 50%;
+  padding: 2em;
+  border-radius: 10px;
+  color: white;
+  background: rgb(21 21 21);
+}
+
+.prompt-wrapper .prompt-content button {
+  background: transparent;
+  color: white;
+  font-size: inherit;
+  margin: auto;
+  display: block;
+  font-weight: 600;
+  padding: .5em 1em;
+  border-radius: 10px;
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+  margin-bottom: 1em;
+}
+
+.prompt-wrapper .prompt-content h1,
+.prompt-wrapper .prompt-content p {
+  text-align: center;
+}
+
+/* Wrapper Section */
+.wrapper {
+  top: 0;
+  left: 0;
+  max-width: 1366px;
+  height: 100vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  margin: auto;
+}
+
+.wrapper1.show,
+.wrapper2.show,
+.user-panel.show,
+.wrapper4.show {
+  display: flex;
+}
+
+/* SignUp Form Section */
+.wrapper .signUpForm {
+  width: 45%;
+  height: auto;
+  padding: 1em 2em;
+  box-shadow: var(--form-white-box-shadow-color);
+  background-color: var(--form-white-box-shadow-color);
+  border-radius: 15px;
+  display: block;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .signUpForm h2,
+.wrapper .signUpForm .already-have-an-account {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+}
+.wrapper .signUpForm h2 {
+  margin: 1em 0;
+}
+
+.wrapper .signUpForm .already-have-an-account {
+  font-size: inherit;
+  margin: 1em 0;
+}
+
+.wrapper .signUpForm .input-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container {
+  margin: .5em 0;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input {
+  width: 100%;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input,
+.wrapper .signUpForm button {
+  font-size: inherit;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input[type=number]::-webkit-inner-spin-button,
+.wrapper .signUpForm .input-wrapper .input-container input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  display: none;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container small {
+  margin: .4em 0 0 .5em;
+  color: red;
+  display: none;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container small.show {
+  display: block;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input {
+  padding: 1em;
+  border-radius: 5px;
+  background: var(--form-white-color);
+  box-shadow: var(--input-white-box-shadow);
+  transition: .1s ease-in-out;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input:focus,
+.wrapper .signUpForm.dark .input-wrapper .input-container input:focus {
+  box-shadow: var(--focus-input-white-box-shadow);
+}
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper input {
+  width: 100%;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper button {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: url('img/eye-c-b.png') no-repeat center;
+  background-size: cover;
+  right: 15px;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper button.show {
+  background: url('img/eye-o-b.PNG') no-repeat center;
+  background-size: cover;
+}
+
+.wrapper .signUpForm .signUpButton {
+  margin: 1.5em auto 1em;
+  background: var(--black-buttons);
+  padding: .7em 1.5em;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.wrapper .signUpForm .signUpButton:active {
+  background: var(--black-buttons-active);
+}
+
+/* Account Wrapper Section */
+.wrapper .account-wrapper {
+  position: fixed;
+  width: 40%;
+  height: auto;
+  box-shadow: 0px 0px 5px rgb(36, 36, 36);
+  background: #000000e6;
+  display: none;
+  color: white;
+  z-index: 1;
+}
+
+.wrapper .account-wrapper.show {
+  display: block;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .account-wrapper h2 {
+  display: block;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em 1em;
+}
+
+.wrapper .account-wrapper .close-account-wrapper {
+  background: transparent;
+  font-size: inherit;
+  color: var(--font-color-white);
+  font-size: xx-large;
+}
+
+.wrapper .account-wrapper hr {
+  background: white;
+  height: 1px;
+}
+
+.wrapper .account-wrapper .account-datas {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .account-wrapper .account-datas .data-wrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #989898;
+  background: #2f2f2f;
+  padding: .5em 0;
+  border-radius: 10px;
+  margin: .5em;
+  color: white;
+  opacity: 0;
+  transition: .1s ease-in-out;
+}
+
+.wrapper .account-wrapper .account-datas .data-wrapper.show {
+  opacity: 1;
+}
+
+.wrapper .account-wrapper .account-datas .data-wrapper h4 {
+  width: 60%;
+  word-wrap: break-word;
+}
+
+.wrapper .account-wrapper .account-datas .data-wrapper img {
+  border-radius: 50em;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* Navigation Section */
+.wrapper .navigation {
+  width: 100%;
+  height: 4em;
+  padding: .5em 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .navigation .icon-wrapper {
+  width: 45px;
+  height: 45px;
+  border-radius: 50em;
+  position: relative;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  background: white;
+  box-shadow: var(--form-white-box-shadow-color);
+}
+
+.wrapper .navigation .icon-wrapper:active {
+  background: rgb(247, 247, 247);
+}
+
+.wrapper .navigation .icon-wrapper .num {
+  position: absolute;
+  background: #099511b5;
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 0.1em 0.4em;
+  border-radius: 50em;
+  top: -10px;
+  right: 5px;
+}
+
+.wrapper .navigation .icon-wrapper .icon {
+  background: url('img/person-black.png') no-repeat center;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+}
+
+/* Toggle / Color Wrapper Section */
+
+.wrapper .color-wrapper {
+  width: 50px;
+  height: 25px;
+  border-radius: 50em;
+  background: var(--background-color-wrapper);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2px;
+  position: relative;
+}
+
+.wrapper .color-wrapper .color-toggle {
+  width: 23px;
+  height: 23px;
+  border-radius: 50em;
+  background: white;
+  transform: none;
+  transition: .15s ease-in-out;
+}
+
+/* Login Section */
+.wrapper .loginForm {
+  width: 35%;
+  height: auto;
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  background: var(--form-white-color);
+  box-shadow: var(--form-white-box-shadow-color);
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .loginForm h2,
+.wrapper .loginForm .dont-have-an-account,
+.wrapper .loginForm .input-container input,
+.wrapper .loginForm .input-container,
+.wrapper .loginForm .forgot-password {
+  width: 100%;
+  padding: 1em;
+  outline: blue;
+}
+
+.wrapper .loginForm .dont-have-an-account,
+.wrapper  .loginForm .forgot-password,
+.wrapper .loginForm .loginButton,
+.wrapper .loginForm .input-container input {
+  font-size: inherit;
+  background: transparent;
+}
+
+.wrapper .loginForm h2 {
+  text-align: center;
+}
+
+.wrapper .loginForm .input-container input {
+  transition: .1s ease-in-out;
+  box-shadow: var(--input-white-box-shadow);
+  border-radius: 0px 10px 10px 0;
+}
+
+.wrapper .loginForm .input-container input:focus {
+  box-shadow: var(--focus-input-white-box-shadow);
+}
+
+.wrapper .loginForm .input-container .password-wrapper {
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .loginForm .input-container .password-wrapper button {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: url('img/eye-c-b.png') no-repeat center;
+  background-size: cover;
+  right: 15px;
+}
+
+.wrapper .loginForm .input-container .password-wrapper button.show {
+  background: url('img/eye-o-b.PNG') no-repeat center;
+  background-size: cover;
+}
+
+.wrapper .loginForm .input-container {
+  padding: 0;
+  margin: .7em 0;
+}
+
+.wrapper .loginForm .input-container small {
+  margin: .4em 0 0 .5em;
+  color: red;
+  display: none;
+}
+
+.wrapper .loginForm .input-container small.show {
+  display: block;
+}
+
+.wrapper .loginForm .forgot-password {
+  text-align: left;
+  padding: 0;
+  margin-top: 1em;
+}
+
+.wrapper .loginForm .loginButton {
+  margin: 1.5em 0 1em;
+  background: var(--black-buttons);
+  padding: .7em 1.5em;
+  color: white;
+  border-radius: 10px;
+}
+
+.wrapper .loginForm .loginButton:active {
+  background: var(--black-buttons-active);
+}
+
+/* User Dashboard Section */
+.wrapper .user-dashboard {
+  width: 60%;
+  max-height: 95%;
+  padding: 2em 3em;
+  box-shadow: var(--form-white-box-shadow-color);
+  background: var(--form-white-color);
+  border-radius: 10px;
+  position: relative;
+  display: block;
+  animation: popUp .2s ease-in-out 1;
+  overflow: auto;
+}
+
+.wrapper .user-dashboard h3 {
+  text-align: center;
+  margin: 2em 0 .5em;
+  width: 100%;
+}
+
+.wrapper .user-dashboard hr {
+  height: 1px;
+  background: #c9c9c9;
+}
+
+.wrapper .user-dashboard .logout-wrapper {
+  width: 100%;
+  height: 3em;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .user-dashboard .logout-wrapper button {
+  font-size: inherit;
+  background: var(--black-buttons);
+  color: white;
+  padding: .5em 1em;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+}
+
+.wrapper .user-dashboard .logout-wrapper button:active {
+  background: var(--black-buttons-active);
+}
+
+.wrapper .user-dashboard .profile-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper .user-dashboard .profile-wrapper h2 {
+  text-transform: capitalize;
+  position: relative;
+  left: -50px;
+  top: 20px;
+}
+
+.wrapper .user-dashboard .profile-wrapper .profile-image-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50em;
+  overflow: hidden;
+  border: 1px solid black;
+  position: relative;
+}
+
+.wrapper .user-dashboard .profile-wrapper .profile-image-wrapper img {
+  width: inherit;
+}
+
+.wrapper .user-dashboard .profile-wrapper .profile-image-wrapper:hover > label {
+  display: flex;
+}
+
+.wrapper .user-dashboard .profile-wrapper .profile-image-wrapper label {
+  z-index: 1;
+  position: absolute;
+  background: rgb(121, 121, 121);
+  width: inherit;
+  text-align: center;
+  bottom: 0px;
+  font-weight: 600;
+  font-size: .8em;
+  cursor: pointer;
+  color: white;
+  height: 2em;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .user-dashboard .profile-wrapper .profile-image-wrapper input {
+  display: none;
+}
+  
+.wrapper .user-dashboard table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.wrapper .user-dashboard table th,
+.wrapper .user-dashboard table td {
+  width: 50%;
+  padding: 1em 0;
+  font-size: inherit;
+}
+
+.wrapper .user-dashboard table td.address {
+  text-transform: capitalize;
+}
+
+.wrapper .user-dashboard .button-wrapper {
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .user-dashboard .button-wrapper button {
+  padding: .5em 1em;
+  border-radius: 5px;
+  background: var(--black-buttons);
+  color: white;
+  font-size: inherit;
+  margin: 0 1em;
+}
+
+.wrapper .user-dashboard .button-wrapper .edit-info:active {
+  background: var(--black-buttons-active);
+}
+
+.wrapper .user-dashboard .button-wrapper button.delete-account {
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+}
+
+/* Delete Prompt Section */
+.wrapper .user-dashboard .delete-prompt {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+  background: #000000f7;
+}
+
+.wrapper .user-dashboard .delete-prompt.show {
+  display: flex;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .user-dashboard .delete-prompt .button-wrapper button {
+  background: var(--success-button-color);
+  box-shadow: var(--success-button-shadow);
+}
+
+.wrapper .user-dashboard .delete-prompt .button-wrapper button:active {
+  background: var(--success-button-active)
+}
+
+.wrapper .user-dashboard .delete-prompt .button-wrapper button.cancel-delete {
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+}
+
+.wrapper .user-dashboard .button-wrapper button.delete-account:active,
+.wrapper .user-dashboard .delete-prompt .button-wrapper button.cancel-delete:active {
+  background: var(--warning-button-color-active);
+}
+
+/* Edit Account Section */
+.wrapper .user-dashboard .edit-account {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #000000e6;
+  overflow-y: auto;
+  padding: 2em 0em;
+  display: none;
+}
+
+.wrapper .user-dashboard .edit-account.show {
+  display: block;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .user-dashboard .edit-account h2 {
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+  color: white;
+}
+
+.wrapper .user-dashboard .edit-account ul {
+  width: 100%;
+}
+
+.wrapper .user-dashboard .edit-account ul li {
+  padding: 1em;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.wrapper .user-dashboard .edit-account ul li small {
+  margin: .4em 0 0 .5em;
+  color: red;
+  display:none;
+  position: relative;
+  left: -103px;
+}
+
+.wrapper .user-dashboard .edit-account ul li small.show {
+  display: block;
+}
+
+.wrapper .user-dashboard .edit-account ul li .password-wrapper {
+  width: 70%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .user-dashboard .edit-account ul li .password-wrapper input {
+  width: 100%;
+}
+
+.wrapper .user-dashboard .edit-account ul li input[type=number]::-webkit-inner-spin-button,
+.wrapper .user-dashboard .edit-account ul li input::-webkit-outer-spin-button {
+  appearance: none;
+  display: none;
+}
+
+.wrapper .user-dashboard .edit-account ul li .password-wrapper button {
+  position: absolute;
+  background: url('img/eye-c-w.png') no-repeat center;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  right: 20px;
+}
+
+.wrapper .user-dashboard .edit-account ul li .password-wrapper button.show {
+  background: url('img/eye-o-w.PNG') no-repeat center;
+  background-size: cover;
+}
+
+.wrapper .user-dashboard .edit-account ul li span,
+.wrapper .user-dashboard .edit-account ul li input {
+  font-size: inherit;
+  width: 70%;
+}
+
+.wrapper .user-dashboard .edit-account ul li span {
+  width: 20%;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.wrapper .user-dashboard .edit-account ul li input {
+  padding: 1em;
+  background: #232323;
+  border-radius: 0px 5px 5px 0;
+  color: white;
+  transition: .1s ease-in-out;
+}
+
+.wrapper .user-dashboard .edit-account ul li input:focus {
+  box-shadow: 0px 0px 3px white;
+}
+
+.wrapper .user-dashboard .edit-account .button-wrapper button{
+  background: var(--success-button-color);
+  box-shadow: var(--success-button-shadow);
+  font-weight: 600;
+}
+
+.wrapper .user-dashboard .edit-account .button-wrapper button:active {
+  background: var(--success-button-active);
+}
+
+.wrapper .user-dashboard .edit-account .button-wrapper button.cancel {
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+  box-shadow: none;
+}
+
+.wrapper .user-dashboard .edit-account .button-wrapper button.cancel:active {
+  background: var(--warning-button-color-active);
+}
+
+/* Forgot Password : Steps Section */
+.wrapper .steps {
+  width: 40%;
+  padding: 2em 1em;
+  background: var(--form-white-color);
+  box-shadow: var(--form-white-box-shadow-color);
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .steps .input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.wrapper .steps input {
+  padding: 1em;
+  width: 50%;
+  border-radius: 5px;
+  margin: 1em 0;
+  font-size: inherit;
+  width: 45%;
+  transition: .1s ease-in-out;
+  margin: 1em 0 .2em;
+  box-shadow: var(--input-white-box-shadow);
+}
+
+.wrapper .steps .value {
+  width: 80%;
+}
+
+.wrapper .step2 input {
+  margin: 0 .3em;
+}
+
+.wrapper .step2 .input-wrapper {
+  margin: 1em 0;
+}
+
+.wrapper .steps .input-container small {
+  color: red;
+  display:none;
+  position: relative;
+}
+
+.wrapper .steps .input-container small.show {
+  display: block;
+}
+
+.wrapper .steps input:focus {
+  box-shadow: var(--focus-input-white-box-shadow);
+}
+
+.wrapper .steps.dark input:focus {
+  box-shadow: var(--focus-input-white-box-shadow);
+}
+
+.wrapper .steps .input-wrapper .input-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper .steps .button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: .5em;
+}
+
+.wrapper .steps .button-wrapper button {
+  padding: .5em 1em;
+  border-radius: 5px;
+  background: var(--black-buttons);
+  color: white;
+  font-size: inherit;
+  margin: 0 1em;
+}
+
+.wrapper .steps .button-wrapper button:active {
+  background: var(--black-buttons-active);
+}
+
+.wrapper .steps .button-wrapper button.back,
+.wrapper .steps .button-wrapper button.back2 {
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+}
+
+.wrapper .steps .button-wrapper button.back:active,
+.wrapper .steps .button-wrapper button.back2:active {
+  background: var(--warning-button-color-active);
+}
+
+.wrapper .steps .password-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.wrapper .steps .password-wrapper input {
+  margin: 0;
+}
+
+.wrapper .steps .password-wrapper .password-eye-wrapper {
+  width: 45%;
+  position: relative;
+  display: inherit;
+  align-items: center;
+}
+
+.wrapper .steps .password-wrapper .password-eye-wrapper input {
+  width: 100%;
+}
+
+.wrapper .steps .password-wrapper .password-eye-wrapper button {
+  position: absolute;
+  background: url('img/eye-c-b.png') no-repeat center;
+  background-size: cover;
+  width: 23px;
+  height: 23px;
+  right: 15px;
+}
+
+.wrapper .steps .password-wrapper .password-eye-wrapper button.show {
+  background: url('img/eye-o-b.PNG') no-repeat center;
+  background-size: cover;
+}
+
+.wrapper .step3 small {
+  margin: 1em 0;
+  color: red;
+  display:none;
+  position: relative;
+}
+
+.wrapper .step3 small.show {
+  display: block;
+}
+
+.wrapper .step1.show,
+.wrapper .step2.show,
+.wrapper .step3.show {
+  display: block;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .validate-prompt-wrapper {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.wrapper .validate-prompt-wrapper.show {
+  display: flex;
+  animation: popUp .1s ease-in-out 1;
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content {
+  width: 50%;
+  padding: 2em;
+  border-radius: 10px;
+  color: white;
+  background: rgb(21 21 21);
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content button {
+  background: transparent;
+  color: white;
+  font-size: inherit;
+  margin: auto;
+  display: none;
+  font-weight: 600;
+  padding: .5em 1em;
+  border-radius: 10px;
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+  margin-bottom: 1em;
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content button:active {
+  background: var(--warning-button-color-active);
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content h2 {
+  margin: .5em 0;
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content h2,
+.wrapper .validate-prompt-wrapper .validate-prompt-content p {
+  text-align: center;
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content p {
+  display: none;
+}
+
+.wrapper .validate-prompt-wrapper .validate-prompt-content button.show,
+.wrapper .validate-prompt-wrapper .validate-prompt-content p.show {
+  display: block;
+  animation: popUp .2s ease-in-out 1;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input.red,
+.wrapper .loginForm .input-container input.red,
+.wrapper .user-dashboard .edit-account ul li input.red,
+.wrapper .steps input.red,
+.wrapper .steps.dark input.red {
+  box-shadow: 0px 0px 5px red;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input.orange,
+.wrapper .loginForm .input-container input.orange,
+.wrapper .user-dashboard .edit-account ul li input.orange,
+.wrapper .steps input.orange,
+.wrapper .steps.dark input.orange {
+  box-shadow: 0px 0px 5px orange;
+}
+
+.wrapper .signUpForm .input-wrapper .input-container input.green,
+.wrapper .loginForm .input-container input.green,
+.wrapper .user-dashboard .edit-account ul li input.green,
+.wrapper .steps input.green,
+.wrapper .steps.dark input.green {
+  box-shadow: 0px 0px 5px green;
+}
+
+/* Dark Mode */
+.wrapper .color-wrapper.dark { /* Color Button */
+  background: white;
+}
+
+.wrapper .color-wrapper.dark .color-toggle {
+  transform: translateX(1.7em);
+  background: var(--form-dark-toggle-color);
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+body.dark {
+  background: var(--dark-body-color);
+}
+
+.wrapper .signUpForm.dark,
+.wrapper .loginForm.dark,
+.wrapper .user-dashboard.dark,
+.wrapper .steps.dark {
+  background: var(--form-dark-color);
+  box-shadow: var(--form-dark-box-shadow-color);
+  color: white;
+}
+
+.wrapper .signUpForm.dark button,
+.wrapper .loginForm.dark button,
+.wrapper .user-dashboard.dark button,
+.wrapper .signUpForm.dark input,
+.wrapper .loginForm.dark input,
+.wrapper .user-dashboard.dark input,
+.wrapper .steps.dark input {
+  color: white;
+}
+
+.wrapper .signUpForm.dark .signUpButton,
+.wrapper .loginForm.dark .loginButton,
+.wrapper .user-dashboard.dark .button-wrapper .edit-info,
+.wrapper .steps.dark .button-wrapper button {
+  background: var(--success-button-color);
+}
+
+.wrapper .signUpForm.dark .signUpButton:active,
+.wrapper .loginForm.dark .loginButton:active,
+.wrapper .user-dashboard.dark .button-wrapper .edit-info:active,
+.wrapper .steps.dark .button-wrapper button:active {
+  background: var(--success-button-active);
+}
+
+.wrapper .steps.dark .button-wrapper button.back, 
+.wrapper .steps.dark .button-wrapper button.back2 {
+  background: var(--warning-button-color);
+  box-shadow: var(--warning-button-shadow);
+}
+
+.wrapper .navigation .icon-wrapper.dark,
+.wrapper .signUpForm.dark input,
+.wrapper .loginForm.dark input,
+.wrapper .user-dashboard.dark input,
+.wrapper .steps.dark input {
+  box-shadow: var(--form-dark-box-shadow-color);
+}
+
+.wrapper .signUpForm.dark .input-wrapper .input-container input,
+.wrapper .steps.dark input {
+  background: var(--dark-body-color);
+  box-shadow: var(--form-dark-box-shadow-color);
+}
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper.dark button,
+.wrapper .loginForm .input-container .password-wrapper.dark button,
+.wrapper .user-dashboard .edit-account ul li .password-wrapper.dark button,
+.wrapper .steps .password-wrapper .password-eye-wrapper.dark button {
+  background: url('img/eye-c-w.png') no-repeat center;
+  background-size: cover;
+}
+
+
+.wrapper .signUpForm .input-wrapper .input-container .password-wrapper.dark button.show,
+.wrapper .loginForm .input-container .password-wrapper.dark button.show,
+.wrapper .user-dashboard .edit-account ul li .password-wrapper.dark button.show,
+.wrapper .steps .password-wrapper .password-eye-wrapper.dark button.show {
+  background: url('img/eye-o-w.PNG') no-repeat center;
+  background-size: cover;
+}

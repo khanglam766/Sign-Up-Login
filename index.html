@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61M0HH6S5W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-61M0HH6S5W');
+    </script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Joshua Philip C. Unilongo">
+    <link rel="icon" type="image/x-icon" href="img/licon.webp">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="media.css">
+    <script src="index.js" defer></script>
+    <title> Login </title>
+  </head>
+
+<body>
+
+  <div class="prompt-wrapper">
+
+    <div class="prompt-content">
+
+      <button type="button" class="close-prompt"> Close </button>
+  
+        <h1>Your account is succesfully created!</h1>
+  
+        <p> after closing this you'll be directed to login page </p>
+
+    </div>
+
+  </div>
+
+  <div class="wrapper wrapper1">
+
+    <form class="signUpForm">
+
+      <h2> Sign Up </h2>
+
+      <button type="button" class="already-have-an-account"> Already have an account? </button>
+
+      <div class="input-wrapper">
+        
+        <div class="input-container">
+          <input type="text" name="firstname" placeholder="Firstname...">
+          <small></small>
+        </div>
+
+        <div class="input-container">
+          <input type="text" name="lastname" placeholder="Lastname...">
+          <small></small>
+        </div>
+
+        <div class="input-container">
+          <input type="number" name="number" placeholder="Contact Number...">
+          <small></small>
+        </div>
+
+        <div class="input-container">
+          <input type="email" name="email" placeholder="Email...">
+          <small></small>
+        </div>
+
+        <div class="input-container">
+
+          <div class="password-wrapper">
+
+            <input class="password" type="password" name="password" placeholder="Password...">
+
+            <button class="password-eye" type="button"></button>
+
+          </div>
+          <small></small>
+
+        </div>
+
+        <div class="input-container">
+          <input type="password" name="confirmpassword" placeholder="Confirm Password...">
+        </div>
+
+      </div>
+
+      <button type="button" class="signUpButton"> Sign In </button>
+
+    </form>
+
+  </div>
+
+  <div class="wrapper wrapper2 show">
+
+    <div class="account-wrapper">
+
+      <h2>
+
+        <span class="label">No Accounts</span>
+        <button type="button" class="close-account-wrapper">&times;</button>
+
+      </h2>
+
+      <hr>
+
+      <div class="account-datas"></div>
+
+    </div>
+
+    <div class="navigation">
+
+      <button type="button" class="icon-wrapper">
+
+        <div class="num"></div>
+
+        <div class="icon"></div>
+
+      </button>
+
+      <div class="color-wrapper">
+
+        <button type="button" class="color-toggle"></button>
+
+      </div>
+
+    </div>
+
+
+    <form class="loginForm">
+
+      <h2> Login </h2>
+
+      <button type="button" class="dont-have-an-account"> Dont have an account yet? </button>
+
+      <div class="input-container">
+        <input type="email" name="email" placeholder="Email...">
+        <small></small>
+      </div>
+
+      <div class="input-container">
+        <div class="password-wrapper">
+
+          <input class="password" type="password" name="password" placeholder="Password...">
+    
+          <button class="password-eye" type="button"></button>
+    
+        </div>
+        <small></small>
+      </div>
+
+      <button type="button" class="forgot-password"> Forgot Password </button>
+
+      <button type="button" class="loginButton"> Login </button>
+
+    </form>
+
+  </div>
+
+  <div class="wrapper user-panel">
+
+    <div class="user-dashboard">
+
+      <div class="logout-wrapper">
+
+        <button type="button" class="logout"> Logout </button>
+
+      </div>
+
+      <div class="profile-wrapper">
+        <div class="profile-image-wrapper">
+          <img src="" alt="Profile Picture">
+          <label for="photo-profile">UPDATE</label>
+          <input type="file" accept="image/png, image/jpg, image/jpeg" id="photo-profile">
+        </div>
+
+        <h2>
+          <span class="firstname"></span>
+          <span class="middlename"></span>
+          <span class="lastname"></span>
+        </h2>
+
+      </div>
+
+      <h3> Account Details </h3>
+      
+      <hr>
+
+      <table>
+        <tr>
+          <th>Contact Number:</th>
+          <td class="number"></td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td class="email"></td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td class="address"></td>
+        </tr>
+        <tr>
+          <th>Password:</th>
+          <td>**********</td>
+        </tr>
+      </table>
+
+      <div class="button-wrapper">
+
+        <button type="button" class="edit-info"> Edit Information </button>
+
+        <button type="button" class="delete-account"> Delete Account </button>
+
+      </div>
+
+      <div class="delete-prompt">
+
+        <h3> Confirm delete ?</h3>
+
+        <p> Please be advise that this is cannot be undone. </p>
+
+        <div class="button-wrapper">
+
+          <button type="button" class="confirm-delete"> Confirm </button>
+
+          <button type="button" class="cancel-delete"> Cancel </button>
+
+        </div>
+      </div>
+
+      <div class="edit-account">
+
+        <h2> Edit your account </h2>
+
+        <ul>
+
+          <li> <span class="">Firstname:</span> <input type="text" class="nfirstname" placeholder="Firstname"></li>
+
+          <li> <span class="">Middlename:</span> <input type="text" class="nmiddlename" placeholder="Middle"></li>
+
+          <li> <span class="">Lastname:</span> <input type="text" class="nlastname" placeholder="Lastname"></li>
+
+          <li> <span class="">Contact Number:</span> <input type="number" class="nnumber" name="number" placeholder="Contact Number">
+          <small></small>
+          </li>
+
+          <li> <span class="">Email:</span> <input type="email" class="nemail" name="email" placeholder="Email">
+          <small></small>
+          </li>
+
+          <li> <span class="">Address:</span> <input type="text" class="address" placeholder="Address"></li>
+
+          <li> <span class="edit-password">Password</span>
+            
+            <div class="password-wrapper"> <input class="password" type="password" class="password" name="password" placeholder="Password...">
+
+              <button class="password-eye" type="button"></button>
+
+            </div>
+            <small></small>
+
+          </li>
+          
+          <li> <span class="">Confirm Password</span> <input type="password" class="ncpassword" name="ncpassword" placeholder="Confirm Password"></li>
+        
+        </ul>
+
+        <div class="button-wrapper">
+
+          <button type="button" class="save"> Save Changes </button>
+
+          <button type="button" class="cancel"> Cancel </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="wrapper wrapper4">
+
+    <form class="steps step1 show">
+
+      <ul>
+
+        <li> Enter the email or mobile number that you've forgotten the password </li>
+
+      </ul>
+
+      <div class="input-container">
+        <input type="text" name="value" class="value" placeholder="Email or mobile number">
+        <small></small>
+      </div>
+
+      <div class="button-wrapper">
+
+        <button type="button" class="proceed"> Proceed </button>
+
+        <button type="button" class="back"> Back </button>
+
+      </div>
+
+    </form>
+
+    <form class="steps step2">
+
+      <ul>
+
+        <li></li>
+
+      </ul>
+
+      <div class="input-wrapper">
+        <input type="name" name="fname" class="fname" placeholder="Firstname">
+
+        <input type="name" name="lname" class="lname" placeholder="Lastname">
+      </div>
+
+      <div class="button-wrapper">
+
+        <button type="button" class="proceed2"> Proceed </button>
+
+        <button type="button" class="back2"> Back </button>
+
+      </div>
+
+    </form>
+
+    <div class="validate-prompt-wrapper">
+
+      <div class="validate-prompt-content">
+
+        <button type="button" class="close-validate-prompt"> Close </button>
+
+        <h4> Validating... </h4>
+        
+        <h2> 5 </h2>
+  
+        <p> The additional information you've provided is not exist in the database. </p>
+  
+        <p> by closing this window you'll be redirected back to the login page. </p>
+
+      </div>
+
+    </div>
+
+    <form class="steps step3">
+
+      <ul>
+
+        <li> Create new password </li>
+
+      </ul>
+
+      <div class="password-wrapper">
+        <div class="password-eye-wrapper">
+
+          <input class="password" type="password" name="fpassword" placeholder="Password...">
+  
+          <button class="password-eye" type="button"></button>
+  
+        </div>
+        
+        <input type="password" name="cfpassword" placeholder="Confirm Password">
+      </div>
+
+      <small></small>
+
+      <div class="button-wrapper">
+
+        <button type="button" class="submit"> Submit </button>
+
+        <button type="button" class="back cancel"> Cancel </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
